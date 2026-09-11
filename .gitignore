@@ -1,0 +1,35 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Logs
+logs/
+*.log
+
+# Training outputs
+runs/
+outputs/
+checkpoints/
+
+# Model weights
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+
+# Large data
+*.h5ad
+*.h5
+*.npy
+*.npz
+*.pkl
+*.csv
+*.tsv
+*.parquet
+
+# Cache
+.cache/
+.ipynb_checkpoints/
+inspect/
