@@ -1,0 +1,97 @@
+paths:
+  train_local: data/stage2/train
+  val_local: data/stage2/val
+  regulon_target_path: vocab/regulon_targets_importance_sorted.json
+  output_root: outputs/stage2
+  run_name: scKITE_stage2_100_notf2048_5e-5
+global_vocab:
+  text_tokenizer_path: vocab/biobert_tokenizer
+  global_vocab_path: vocab/global_vocab/global_vocab.json
+  global_vocab_meta_path: vocab/global_vocab/global_vocab_meta.json
+  gene_table_path: vocab/global_vocab/gene_table.jsonl
+  use_fast: true
+  do_lower_case: false
+data:
+  batch_size: 40
+  eval_batch_size: 34
+  max_encoder_length: 2049
+  mlm_probability: 0.1
+  mask_gene_input: false
+  mask_expr_input: true
+  num_bins: 51
+  sampling: false
+  num_workers: 8
+  pin_memory: true
+  drop_last: false
+  genes_field: genes
+  expressions_field: expressions
+  active_regulon_field: active_regulon_ids
+  cell_id_field: cell_id
+  loss_weight_field: loss_weight
+  use_loss_weight: false
+  keep_first_n_tokens: 1
+  pad_value: -2.0
+  cls_value: -1.0
+  mask_value: -3.0
+  task_sampling_mode: all
+  n_regulons: 530
+  regulon_num_queries: 3
+  regulon_sampling_mode: cyclic_without_replacement
+  regulon_seed: 42
+  validation_regulon_seed: 2026
+  cell_specific_targets: true
+  expressed_gene_threshold: 0.0
+  dynamic_target_budget: true
+  fixed_eval_encoder_mask: true
+decoder:
+  max_decoder_length: 512
+decoder_tasks:
+- name: regulon
+  field: active_regulon_ids
+  target_type: multi_regulon_compact
+  enabled: true
+- name: annotation
+  field: natural_language_annotation
+  target_type: plain_text
+  enabled: true
+model:
+  d_model: 512
+  n_heads: 8
+  n_layers: 12
+  decoder_n_layers: 2
+  decoder_n_heads: 8
+  expansion_ratio: 4
+  dropout: 0.1
+  value_hidden_dim: 128
+  value_head_hidden_dim: 256
+  tie_lm_head: true
+  use_mask_flag_embedding: true
+  stage1_ckpt_path: checkpoints/stage1/best.pt
+  freeze_encoder: false
+  freeze_embeddings: false
+  freeze_value_head: false
+train:
+  seed: 42
+  epochs: 15
+  encoder_lr: 1.0e-4
+  decoder_lr: 1.0e-4
+  min_lr: 1.0e-6
+  weight_decay: 0.01
+  lambda_expr: 1.0
+  lambda_regulon: 1.0
+  lambda_annotation: 1.0
+  grad_clip: 1.0
+  amp: true
+  log_every_n_steps: 50
+  wandb_log_every_n_steps: 1
+  wandb_loss_window: 100
+  eval_every_n_steps: 1000
+  save_step_ckpt: false
+  save_every_n_epochs: 1
+  keep_last_n_ckpts: 2
+  find_unused_parameters: true
+wandb:
+  use_wandb: true
+  project: scKITE_dual_decoder_3_activate_regulon(compact)
+  name: scKITE_stage2_100_notf2048_5e-5
+  dir: outputs/wandb

@@ -1,0 +1,66 @@
+paths:
+  train_local: data/stage1/train
+  val_local: data/stage1/val
+  output_root: outputs/stage1
+  run_name: scKITE_stage1_100_notf2048_5e-5
+global_vocab:
+  text_tokenizer_path: vocab/biobert_tokenizer
+  global_vocab_path: vocab/global_vocab/global_vocab.json
+  global_vocab_meta_path: vocab/global_vocab/global_vocab_meta.json
+  gene_table_path: vocab/global_vocab/gene_table.jsonl
+  use_fast: true
+  do_lower_case: false
+data:
+  batch_size: 160
+  eval_batch_size: 150
+  max_encoder_length: 2049
+  mlm_probability: 0.3
+  mask_gene_input: false
+  mask_expr_input: true
+  num_bins: 51
+  sampling: false
+  num_workers: 8
+  pin_memory: true
+  drop_last: false
+  genes_field: genes
+  expressions_field: expressions
+  cell_id_field: cell_id
+  keep_first_n_tokens: 1
+  pad_value: -2.0
+  cls_value: -1.0
+  mask_value: -3.0
+  fixed_eval_encoder_mask: true
+model:
+  d_model: 512
+  n_heads: 8
+  n_layers: 12
+  expansion_ratio: 4
+  dropout: 0.1
+  value_hidden_dim: 128
+  value_head_hidden_dim: 256
+  use_mask_flag_embedding: true
+  stage1_ckpt_path:
+  freeze_encoder: false
+  freeze_embeddings: false
+  freeze_value_head: false
+train:
+  seed: 42
+  epochs: 10
+  lr: 5.0e-05
+  min_lr: 1.0e-06
+  weight_decay: 0.01
+  grad_clip: 0.3
+  amp: true
+  log_every_n_steps: 50
+  wandb_log_every_n_steps: 1
+  wandb_loss_window: 100
+  eval_every_n_steps: 300
+  save_step_ckpt: false
+  save_every_n_epochs: 1
+  keep_last_n_ckpts: 1
+  find_unused_parameters: false
+wandb:
+  use_wandb: true
+  project: scKITE_dual_decoder_3_activate_regulon(compact)
+  name: scKITE_stage1_100_notf2048_5e-5
+  dir: outputs/wandb

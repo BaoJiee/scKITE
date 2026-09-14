@@ -1,16 +1,49 @@
-# Python cache
-__pycache__/
-*.pyc
-*.pyo
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
 
-# Logs
+# Python bytecode and tool caches
+__pycache__/
+*.py[cod]
+*$py.class
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Python environments and local configuration
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+
+# Packaging artifacts
+build/
+dist/
+*.egg-info/
+
+# Jupyter-generated state
+.ipynb_checkpoints/
+
+# Logs and experiment trackers
 logs/
 *.log
+wandb/
+mlruns/
 
-# Training outputs
+# Training outputs and generated analyses
 runs/
 outputs/
+results/
 checkpoints/
+inspect/
 
 # Model weights
 *.pt
@@ -19,17 +52,18 @@ checkpoints/
 *.safetensors
 *.bin
 
-# Large data
+# External and generated scientific data
+data/
 *.h5ad
 *.h5
+*.loom
+*.zarr/
 *.npy
 *.npz
 *.pkl
-*.csv
-*.tsv
+*.pickle
 *.parquet
+*.feather
 
-# Cache
-.cache/
-.ipynb_checkpoints/
-inspect/
+# CSV and TSV files are intentionally not ignored globally. Small fixtures,
+# metadata, and versioned biological resources may need to be tracked.

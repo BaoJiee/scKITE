@@ -1,0 +1,10 @@
+name: sckite
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11.14
+  - pip
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu128
+      - torch==2.10.0+cu128
+      - -e .[downstream,notebooks,tracking]
