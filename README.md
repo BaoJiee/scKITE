@@ -193,9 +193,7 @@ Dataset details are currently **TBD**.
 
 ## Model checkpoints
 
-Model weights and training checkpoints are intentionally excluded from Git.
-The release location, checkpoint variants, expected checksums, and terms of use
-are currently **TBD**.
+
 
 At minimum, the following artifacts must be documented:
 
