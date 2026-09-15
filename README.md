@@ -1,9 +1,5 @@
 # scKITE
 
-> **Pre-release research code.** This repository is being prepared for a
-> reproducible public release. The current version contains research workflows
-> that require external datasets and checkpoints and is not yet expected to run
-> on a new system without configuration.
 
 scKITE (**single-cell Knowledge-Integrated Transformer**) is a single-cell
 foundation model (scFM) for learning and evaluating representations of
