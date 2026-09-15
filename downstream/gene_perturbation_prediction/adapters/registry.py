@@ -1,9 +1,11 @@
 from .native_gears import NativeGEARSAdapter
+from .random_adapter import RandomAdapter
 from .sckite_adapter import ScKITEAdapter
 
 
 ADAPTER_REGISTRY = {
     "native_gears": NativeGEARSAdapter,
+    "random": RandomAdapter,
     "sckite": ScKITEAdapter,
 }
 

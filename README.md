@@ -217,6 +217,20 @@ The downstream notebooks and perturbation-prediction launchers still require
 dataset and external-baseline locations to be supplied before use. A verified
 minimal example and expected output will be added before release.
 
+## Testing
+
+Install the development dependencies and run the test suite from the repository
+root:
+
+```bash
+python -m pip install -e ".[dev]"
+pytest
+```
+
+The initial tests validate Stage 1 and Stage 2 forward passes, Stage 1-to-Stage
+2 checkpoint initialization, deterministic random-adapter behavior, and global
+vocabulary consistency.
+
 ## Reproducibility checklist
 
 - [ ] Pin Python and package versions.

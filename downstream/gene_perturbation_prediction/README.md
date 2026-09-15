@@ -49,6 +49,10 @@ The scKITE command-line interface uses `adapter_name=sckite`. Gene embeddings
 can be selected with `sckite_static` or `sckite_contextual`, and perturbation
 embeddings can optionally be initialized with `sckite_init`.
 
+For a deterministic random-embedding control, use `adapter_name=random` with
+one of the scKITE embedding modes. The random adapter is seeded through the
+main training `--seed` argument.
+
 ## Baseline runs
 
 The baseline launchers require external source code and checkpoints that are
