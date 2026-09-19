@@ -7,6 +7,7 @@ name = "sckite"
 version = "0.1.0"
 description = "Knowledge-integrated Transformer models for single-cell transcriptomics"
 readme = "README.md"
+license = { file = "LICENSE" }
 requires-python = ">=3.11,<3.12"
 dependencies = [
     "mosaicml-streaming>=0.11",
@@ -16,6 +17,12 @@ dependencies = [
     "tqdm>=4.66",
     "transformers>=4.40",
 ]
+
+[project.urls]
+Homepage = "https://github.com/BaoJiee/scKITE"
+Repository = "https://github.com/BaoJiee/scKITE"
+Paper = "https://arxiv.org/abs/2609.14970"
+Issues = "https://github.com/BaoJiee/scKITE/issues"
 
 [project.optional-dependencies]
 tracking = [

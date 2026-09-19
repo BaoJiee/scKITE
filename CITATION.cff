@@ -1,0 +1,60 @@
+cff-version: 1.2.0
+message: "If you use scKITE, please cite the associated preprint."
+title: "scKITE"
+type: software
+version: 0.1.0
+license: MIT
+repository-code: "https://github.com/BaoJiee/scKITE"
+url: "https://arxiv.org/abs/2609.14970"
+authors:
+  - family-names: Zhang
+    given-names: Hanqing
+  - family-names: Bao
+    given-names: Jie
+  - family-names: Ma
+    given-names: Mei
+  - family-names: Liu
+    given-names: Shuai
+  - family-names: Ma
+    given-names: Jiaying
+  - family-names: Liu
+    given-names: Jiaguan
+  - family-names: Li
+    given-names: Jiaxiao
+  - family-names: Li
+    given-names: Zhenbo
+  - family-names: Gong
+    given-names: Wenwen
+  - family-names: Ca
+    given-names: Zhijun
+preferred-citation:
+  type: article
+  title: "Towards a knowledge-enhanced single-cell foundation model"
+  authors:
+    - family-names: Zhang
+      given-names: Hanqing
+    - family-names: Bao
+      given-names: Jie
+    - family-names: Ma
+      given-names: Mei
+    - family-names: Liu
+      given-names: Shuai
+    - family-names: Ma
+      given-names: Jiaying
+    - family-names: Liu
+      given-names: Jiaguan
+    - family-names: Li
+      given-names: Jiaxiao
+    - family-names: Li
+      given-names: Zhenbo
+    - family-names: Gong
+      given-names: Wenwen
+    - family-names: Ca
+      given-names: Zhijun
+  year: 2026
+  journal: arXiv
+  identifiers:
+    - type: other
+      value: "arXiv:2609.14970"
+      description: arXiv identifier
+  url: "https://arxiv.org/abs/2609.14970"

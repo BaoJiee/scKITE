@@ -1,9 +1,14 @@
 # scKITE
 
+[![arXiv](https://img.shields.io/badge/arXiv-2609.14970-b31b1b.svg)](https://arxiv.org/abs/2609.14970)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 scKITE (**single-cell Knowledge-Integrated Transformer**) is a single-cell
 foundation model (scFM) for learning and evaluating representations of
 single-cell transcriptomic data.
+
+This is the official implementation accompanying the preprint
+[Towards a knowledge-enhanced single-cell foundation model](https://arxiv.org/abs/2609.14970).
 
 **We present scKITE, a simple yet effective scFM that integrates
 cell-annotation and gene-regulatory supervision into a shared transcriptomic
@@ -29,7 +34,7 @@ The repository is under active release preparation. In particular:
 - the dependency manifests are preliminary and still require validation against
   the final training environment;
 - dataset and model-checkpoint release locations and checksums are pending;
-- third-party provenance and the repository license are not yet finalized; and
+- complete third-party provenance is still being consolidated; and
 - end-to-end reproducibility tests are still being consolidated.
 
 Scientific code is being reorganized without changing model behavior or the
@@ -243,31 +248,47 @@ vocabulary consistency.
 
 ## Citation
 
-The associated manuscript is:
+If you use scKITE, please cite:
 
-> *Towards a knowledge-enhanced single-cell foundation model*
+> Hanqing Zhang, Jie Bao, Mei Ma, Shuai Liu, Jiaying Ma, Jiaguan Liu,
+> Jiaxiao Li, Zhenbo Li, Wenwen Gong, and Zhijun Ca.
+> *Towards a knowledge-enhanced single-cell foundation model*.
+> arXiv:2609.14970, 2026.
 
-The author list, publication venue, DOI, and `CITATION.cff` metadata are
-currently **TBD**.
+```bibtex
+@misc{zhang2026sckite,
+  title={Towards a knowledge-enhanced single-cell foundation model},
+  author={Zhang, Hanqing and Bao, Jie and Ma, Mei and Liu, Shuai and
+          Ma, Jiaying and Liu, Jiaguan and Li, Jiaxiao and Li, Zhenbo and
+          Gong, Wenwen and Ca, Zhijun},
+  year={2026},
+  eprint={2609.14970},
+  archivePrefix={arXiv},
+  primaryClass={cs.AI},
+  url={https://arxiv.org/abs/2609.14970}
+}
+```
+
+Machine-readable citation metadata are available in [`CITATION.cff`](CITATION.cff).
 
 ## Third-party software
 
 The perturbation-prediction workflow contains GEARS-derived or GEARS-compatible
 code based on the
 [Stanford SNAP GEARS repository](https://github.com/snap-stanford/GEARS), as
-well as adapters for scGPT and scFoundation. The exact upstream GEARS version
-or commit, local modifications, citations, and applicable licenses will be
-recorded in a `THIRD_PARTY_NOTICES.md` file before release.
+well as adapters for scGPT and scFoundation. Attribution, licensing, and the
+current provenance limitation are documented in
+[`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
 
 ## License
 
-**TBD. No open-source license has been selected for this repository yet.**
-Until a license is added, the repository should not be described as granting
-permission to copy, modify, or redistribute its contents.
+Original scKITE source code is released under the [MIT License](LICENSE).
 
-Model weights, datasets, and third-party resources may be governed by terms
-that differ from the source-code license.
+The source-code license does not automatically apply to model weights,
+datasets, pretrained tokenizers, third-party code, or biological resources.
+See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) for scope and attribution.
 
 ## Contact
 
-Maintainer and project contact information are currently **TBD**.
+For code-related questions and reproducibility reports, open a
+[GitHub issue](https://github.com/BaoJiee/scKITE/issues).
