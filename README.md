@@ -59,9 +59,6 @@ Single-cell expression data
     |-- batch integration
     |-- cell-type annotation
     `-- perturbation prediction
-          |
-          v
-  Biological interpretation
 ```
 
 Dataset construction, final hyperparameter selection, checkpoint provenance,
