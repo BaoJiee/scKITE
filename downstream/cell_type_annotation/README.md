@@ -13,6 +13,11 @@ from the reference set unless explicitly enabled.
 
 ## Expected inputs
 
+The released benchmark inputs are available from
+[`CellType_Annotation`](https://huggingface.co/datasets/Baojiecau/Benchamark/tree/main/CellType_Annotation),
+and the released Stage 2 checkpoint is available from
+[`Baojiecau/scKITE`](https://huggingface.co/Baojiecau/scKITE/resolve/main/stage2_geosketch_50_20260814_085748/best.pt).
+
 ```text
 data/cell_type_annotation/<dataset>/
 |-- train/

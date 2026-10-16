@@ -108,6 +108,7 @@ The example configurations use repository-relative locations:
 | Gene table | `vocab/global_vocab/gene_table.jsonl` |
 | Regulon targets | `vocab/regulon_targets_importance_sorted.json` |
 | Stage 1 initialization checkpoint | `checkpoints/stage1/best.pt` |
+| Released Stage 2 checkpoint | `checkpoints/stage2/best.pt` |
 | Training outputs | `outputs/stage1` and `outputs/stage2` |
 
 Data, tokenizer files, checkpoints, and outputs are not committed to Git unless
@@ -144,5 +145,8 @@ with optimizer, scheduler, scaler, epoch, and configuration state when
 available. Renaming the Python model class does not change tensor keys in a
 `state_dict` checkpoint.
 
-The release locations and checksums for the final Stage 1 and Stage 2
-checkpoints are not yet available.
+The released Stage 2 checkpoint is available from
+[`Baojiecau/scKITE`](https://huggingface.co/Baojiecau/scKITE/resolve/main/stage2_geosketch_50_20260814_085748/best.pt).
+Its SHA-256 checksum is
+`5e0a09d4dc90a92676df06f6306e2bc9b9b1025ceec41f8229056da63ba6495a`.
+The Stage 1 initialization checkpoint has not yet been released.

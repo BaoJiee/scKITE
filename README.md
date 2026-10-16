@@ -2,6 +2,7 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2609.14970-b31b1b.svg)](https://arxiv.org/abs/2609.14970)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Hugging Face](https://img.shields.io/badge/Hugging%20Face-Model%20%26%20Data-FFD21E)](https://huggingface.co/Baojiecau/scKITE)
 
 scKITE (**single-cell Knowledge-Integrated Transformer**) is a single-cell
 foundation model (scFM) for learning and evaluating representations of
@@ -33,7 +34,8 @@ The repository is under active release preparation. In particular:
 
 - the dependency manifests are preliminary and still require validation against
   the final training environment;
-- dataset and model-checkpoint release locations and checksums are pending;
+- the Stage 2 checkpoint and selected pretraining and benchmark datasets are
+  available on Hugging Face, while the Stage 1 checkpoint is not yet released;
 - complete third-party provenance is still being consolidated; and
 - end-to-end reproducibility tests are still being consolidated.
 
@@ -180,28 +182,62 @@ the public release.
 ## Data
 
 Raw and processed single-cell datasets are not committed to this repository.
-The current workflows reference external MDS and AnnData (`.h5ad`) datasets.
+The released training and benchmark inputs are hosted on Hugging Face:
 
-The public release will document, for every dataset:
+| Resource | Hugging Face location | Contents |
+| --- | --- | --- |
+| Pretraining data | [50% pretraining corpus](https://huggingface.co/datasets/Baojiecau/pretrain_data/tree/main/50%25) | MosaicML Streaming `train/` and `val/` splits |
+| Batch integration | [Batch_integration](https://huggingface.co/datasets/Baojiecau/Benchamark/tree/main/Batch_integration) | Benchmark datasets and split metadata |
+| Cell-type annotation | [CellType_Annotation](https://huggingface.co/datasets/Baojiecau/Benchamark/tree/main/CellType_Annotation) | Benchmark datasets and split metadata |
+| Gene-perturbation prediction | [Gene_Perturbation_Prediction](https://huggingface.co/datasets/Baojiecau/Benchamark/tree/main/Gene_Perturbation_Prediction) | Processed GEARS datasets, graph files, and splits |
+
+Large files remain outside Git. Download the required directory from Hugging
+Face and update the repository-relative paths in the corresponding YAML file or
+notebook configuration cell.
+
+For example, with the [Hugging Face CLI](https://huggingface.co/docs/huggingface_hub/guides/cli):
+
+```bash
+hf download Baojiecau/pretrain_data \
+  --repo-type dataset \
+  --include "50%/*" \
+  --local-dir data/pretrain_data
+
+hf download Baojiecau/Benchamark \
+  --repo-type dataset \
+  --local-dir data/benchmarks
+```
+
+The following provenance information is still being consolidated for every
+dataset:
 
 1. the original source and citation;
 2. the accession or persistent download URL;
 3. the license and redistribution status;
 4. preprocessing and train/validation/test split procedures; and
-5. a checksum or version identifier for the processed input.
-
-Dataset details are currently **TBD**.
+5. a checksum or immutable revision for the processed input.
 
 ## Model checkpoints
 
+The released Stage 2 checkpoint is hosted in the
+[scKITE Hugging Face model repository](https://huggingface.co/Baojiecau/scKITE):
 
+| Checkpoint | Direct download | Size | SHA-256 |
+| --- | --- | ---: | --- |
+| Stage 2, 50% geosketch run | [`best.pt`](https://huggingface.co/Baojiecau/scKITE/resolve/main/stage2_geosketch_50_20260814_085748/best.pt) | 2,355,226,205 bytes | `5e0a09d4dc90a92676df06f6306e2bc9b9b1025ceec41f8229056da63ba6495a` |
 
-At minimum, the following artifacts must be documented:
+Download it to the default downstream location with:
 
-- the Stage 1 encoder checkpoint used to initialize Stage 2;
-- the released Stage 2 checkpoint(s);
-- vocabulary/resource versions associated with each checkpoint; and
-- downstream baseline checkpoints for scGPT and scFoundation, where applicable.
+```bash
+mkdir -p checkpoints/stage2
+curl -L \
+  https://huggingface.co/Baojiecau/scKITE/resolve/main/stage2_geosketch_50_20260814_085748/best.pt \
+  -o checkpoints/stage2/best.pt
+```
+
+The Stage 1 initialization checkpoint, the exact vocabulary/resource revision
+associated with the released checkpoint, and external baseline checkpoints are
+not yet published here.
 
 ## Running the code
 
@@ -214,9 +250,10 @@ bash sckite/stage1/run.sh
 bash sckite/stage2/run.sh
 ```
 
-The downstream notebooks and perturbation-prediction launchers still require
-dataset and external-baseline locations to be supplied before use. A verified
-minimal example and expected output will be added before release.
+After downloading the released artifacts above, set their local paths in the
+relevant configuration file or notebook. External baseline locations still
+need to be supplied separately. A verified minimal example and expected output
+will be added before release.
 
 ## Testing
 
@@ -239,7 +276,8 @@ vocabulary consistency.
 - [ ] Document and validate the Stage 1 training workflow.
 - [ ] Replace machine-specific paths with configuration parameters.
 - [ ] Publish dataset manifests and preprocessing commands.
-- [ ] Publish checkpoint manifests and checksums.
+- [x] Publish the Stage 2 checkpoint location and checksum.
+- [ ] Publish the Stage 1 checkpoint and a complete artifact manifest.
 - [ ] Add a minimal end-to-end example.
 - [ ] Add unit and integration tests.
 - [ ] Add continuous integration.

@@ -26,6 +26,11 @@ checkpoint formats, preprocessing requirements, and external dependencies.
 
 ## scKITE runs
 
+The released perturbation datasets are available from
+[`Gene_Perturbation_Prediction`](https://huggingface.co/datasets/Baojiecau/Benchamark/tree/main/Gene_Perturbation_Prediction),
+and the released Stage 2 checkpoint is available from
+[`Baojiecau/scKITE`](https://huggingface.co/Baojiecau/scKITE/resolve/main/stage2_geosketch_50_20260814_085748/best.pt).
+
 The scKITE launchers use repository-relative defaults for:
 
 - `checkpoints/stage2/best.pt`;

@@ -12,6 +12,11 @@ the notebook. It is a helper module rather than a separate benchmark entry.
 
 ## Expected inputs
 
+The released benchmark inputs are available from
+[`Batch_integration`](https://huggingface.co/datasets/Baojiecau/Benchamark/tree/main/Batch_integration),
+and the released Stage 2 checkpoint is available from
+[`Baojiecau/scKITE`](https://huggingface.co/Baojiecau/scKITE/resolve/main/stage2_geosketch_50_20260814_085748/best.pt).
+
 The default notebook configuration expects:
 
 ```text
